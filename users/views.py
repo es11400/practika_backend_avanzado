@@ -1,6 +1,11 @@
+from allauth.socialaccount.providers.facebook.views import FacebookOAuth2Adapter
+from allauth.socialaccount.providers.twitter.views import TwitterOAuthAdapter
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout as django_logout
 from django.views import View
+from rest_auth.registration.views import SocialLoginView
+from rest_auth.social_serializers import TwitterLoginSerializer
+from rest_auth.views import LoginView
 
 
 class LogoutView(View):
@@ -14,3 +19,13 @@ class LogoutView(View):
         if request.user.is_authenticated():
             django_logout(request)
         return redirect('/')
+
+
+
+class FacebookLogin(SocialLoginView):
+    adapter_class = FacebookOAuth2Adapter
+
+
+class TwitterLogin(LoginView):
+    serializer_class = TwitterLoginSerializer
+    adapter_class = TwitterOAuthAdapter

@@ -44,8 +44,17 @@ INSTALLED_APPS = [
     'entradas',
     'categorias',
     'users',
-    'rest_framework',
     'imagenes',
+    'django.contrib.sites',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'allauth',
+    'allauth.account',
+    'rest_auth.registration',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.twitter',
+
 ]
 
 MIDDLEWARE = [
@@ -163,5 +172,27 @@ POSTxPAGINAS = 5
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 5,
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        # 'oauth2_provider.ext.rest_framework.OAuth2Authentication',
+    ),
     # 'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',)
 }
+
+# Para usar JWT
+REST_USE_JWT = True
+
+# Sitios para contrib.sites
+SITE_ID = 1
+
+# Para no enviar correos de verificación
+ACCOUNT_EMAIL_VERIFICATION = "none"
+
+# Para forzar el refresco de un JWT Tokens
+JWT_ALLOW_REFRESH = True
