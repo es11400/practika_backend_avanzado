@@ -1,0 +1,6 @@
+idea/
+env/
+uploads/
+*.pyc
+
+db.sqlite3
