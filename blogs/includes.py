@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import redirect, render
 from django.utils.datetime_safe import datetime
+from django.utils.translation import ugettext as _
 
 from cuentame.settings import POSTxPAGINAS
 from cuentame.my_settings import *
@@ -39,7 +40,7 @@ class Inc():
                 password = login_form.cleaned_data.get('pwd')
                 user = authenticate(username=username, password=password)
                 if user is None:
-                    error_message = "Usuario o contraseña incorrecto"
+                    error_message = _("Usuario o contraseña incorrecto")
                     context = {'post_list': posts_pag, 'categoria_list': cat, 'error': error_message,
                                'login_form': login_form}
                     return render(request, 'entradas/inicio.html', context)
@@ -48,7 +49,7 @@ class Inc():
                         django_login(request, user)
                         return redirect(request.GET.get('next', '/'))
                     else:
-                        error_message = "Cuenta de usuario inactiva"
+                        error_message = _("Cuenta de usuario inactiva")
                         context = {'post_list': posts_pag, 'categoria_list': cat, 'error': error_message,
                                    'login_form': login_form}
                         return render(request, 'entradas/inicio.html', context)
@@ -70,7 +71,7 @@ class Inc():
                 # Creamos automaticamente un Blog para el Usuario Registrado.
 
                 blog = blogs()
-                blog.nombre = "El Blog de {0} {1}".format(user.first_name, user.last_name)
+                blog.nombre = _("El Blog de {0} {1}".format(user.first_name, user.last_name))
                 blog.usuario = user
                 blog.visible = VISIBLE_SI
                 blog.save()

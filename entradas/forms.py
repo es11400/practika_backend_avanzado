@@ -9,6 +9,7 @@ from rest_framework import request
 from cuentame.my_settings import *
 from blogs.models import blogs
 from entradas.models import post
+from django.utils.translation import ugettext as _
 
 # VISIBILIDAD = getattr(settings, 'VISIBILIDAD', None)
 
@@ -20,14 +21,14 @@ class CreatePostForm(ModelForm):
         model = post
         fields = ['blog', 'titulo', 'texto_corto', 'texto_largo', 'fecha', 'imagen', 'visible', 'cat']
         labels = {
-                    'blog': 'Elija un Blog',
-                    'titulo': 'Título',
-                    'texto_corto': 'Texto descriptivo',
-                    'texto_largo': 'Texto completo',
-                    'fecha': 'Fecha de publicación',
-                    'imagen': 'Seleccione una imagen',
-                    'visible': '¿Visible?',
-                    'cat': 'Categorías',
+                    'blog': _('Elija un Blog'),
+                    'titulo': _('Título'),
+                    'texto_corto': _('Texto descriptivo'),
+                    'texto_largo': _('Texto completo'),
+                    'fecha': _('Fecha de publicación'),
+                    'imagen': _('Seleccione una imagen'),
+                    'visible': _('¿Visible?'),
+                    'cat': _('Categorías'),
                 }
         exclude = ['creado_el', 'modificado_el']
         widgets = {
@@ -37,6 +38,6 @@ class CreatePostForm(ModelForm):
             'fecha': DateInput(format='d/m/Y h:i:s'),
             # 'fecha': DateTimeInput(attrs={'class': 'datepicker', 'placeholder': 'dd/mm/aaaa HH:MM:SS'}),
             'imagen': FileInput(),
-            'visible': Select(attrs={'label': '¿Visible?', 'class': 'input-field'}),
-            'cat': SelectMultiple(attrs={'label': 'Categorías', 'class': 'multiple'}),
+            'visible': Select(attrs={'label': _('¿Visible?'), 'class': 'input-field'}),
+            'cat': SelectMultiple(attrs={'label': _('Categorías'), 'class': 'multiple'}),
         }

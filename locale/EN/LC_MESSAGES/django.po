@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-07 21:12+0100\n"
+"POT-Creation-Date: 2016-11-24 20:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,37 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: blogs/templates/blogs/blog_list.html:40
+#: blogs/includes.py:43
+msgid "Usuario o contraseña incorrecto"
+msgstr "Incorret user o password"
+
+#: blogs/includes.py:52
+msgid "Cuenta de usuario inactiva"
+msgstr "User account is deactivated"
+
+#: blogs/includes.py:74
+#, python-brace-format
+msgid "El Blog de {0} {1}"
+msgstr "{0} {1}'s Blogs"
+
+#: blogs/templates/blogs/blog_list.html:41
 msgid "¡No existen Blogs! ¿Quieres ser el Primero?"
 msgstr "Blogs do not exist! Want to be the first?"
 
-#: cuentame/templates/base.html:21
+#: blogs/views.py:207
+msgid "El post que buscas no existe"
+msgstr "This post not exist"
+
+
+#: blogs/views.py:209
+msgid "Múltiples opciones"
+msgstr "Multiple options"
+
+#: cuentame/templates/base.html:22
 msgid "¿Tienes una historia? Pues cuéntanosla."
 msgstr "Do you have a story? For I tell us."
 
-#: cuentame/templates/base.html:22
+#: cuentame/templates/base.html:23
 msgid "¿No tienes nada que contar? Pues valora la de los demás."
 msgstr "You have nothing to tell? For values of others."
 
@@ -46,8 +68,8 @@ msgid "Acceso/Registro"
 msgstr "Sig In/Sign Up"
 
 #: cuentame/templates/includes/footer.html:14
-#: cuentame/templates/includes/nav.html:35
-#: cuentame/templates/includes/nav.html:78
+#: cuentame/templates/includes/nav.html:36
+#: cuentame/templates/includes/nav.html:79
 msgid "Contacto"
 msgstr "Contact"
 
@@ -72,29 +94,36 @@ msgid "Hecho a mano por "
 msgstr "Handmade by"
 
 #: cuentame/templates/includes/modals.html:5
+#: cuentame/templates/includes/modals.html:9
 #: cuentame/templates/includes/nav.html:23
-#: cuentame/templates/includes/nav.html:75
+#: cuentame/templates/includes/nav.html:76
 msgid "Acceso"
 msgstr "Sig In"
 
 #: cuentame/templates/includes/modals.html:17
 #: cuentame/templates/includes/nav.html:24
-#: cuentame/templates/includes/nav.html:76
+#: cuentame/templates/includes/nav.html:77
 msgid "Registro"
 msgstr "Sig Up"
 
+#: cuentame/templates/includes/modals.html:21
+#, fuzzy
+#| msgid "Registro"
+msgid "Registrarse"
+msgstr "Sig Up"
+
 #: cuentame/templates/includes/nav.html:18
-#: cuentame/templates/includes/nav.html:70
+#: cuentame/templates/includes/nav.html:71
 msgid "Inicio"
 msgstr "Home"
 
 #: cuentame/templates/includes/nav.html:20
-#: cuentame/templates/includes/nav.html:72
+#: cuentame/templates/includes/nav.html:73
 msgid "Nuevo Post"
 msgstr "New Post"
 
 #: cuentame/templates/includes/nav.html:21
-#: cuentame/templates/includes/nav.html:73
+#: cuentame/templates/includes/nav.html:74
 msgid "Salir"
 msgstr "Sign Out"
 
@@ -103,21 +132,54 @@ msgid "Blogs"
 msgstr "Blogs"
 
 #: cuentame/templates/includes/nav.html:28
-#: cuentame/templates/includes/nav.html:80
+#: cuentame/templates/includes/nav.html:81 entradas/forms.py:31
+#: entradas/forms.py:42
 msgid "Categorías"
-msgstr "category"
+msgstr "Category"
 
-#: cuentame/templates/includes/nav.html:36
+#: cuentame/templates/includes/nav.html:37
 msgid "Idioma"
 msgstr "Language"
 
-#: cuentame/templates/includes/nav.html:38
+#: cuentame/templates/includes/nav.html:39
 msgid "Español"
 msgstr "Spanish"
 
-#: cuentame/templates/includes/nav.html:39
+#: cuentame/templates/includes/nav.html:40
 msgid "Inglés"
 msgstr "English"
+
+#: entradas/forms.py:24
+msgid "Elija un Blog"
+msgstr "Select Blog"
+
+#: entradas/forms.py:25
+msgid "Título"
+msgstr "Title"
+
+#: entradas/forms.py:26
+msgid "Texto descriptivo"
+msgstr "Short text"
+
+#: entradas/forms.py:27
+msgid "Texto completo"
+msgstr "Full text"
+
+#: entradas/forms.py:28
+msgid "Fecha de publicación"
+msgstr "Date"
+
+#: entradas/forms.py:29
+msgid "Seleccione una imagen"
+msgstr "Select a image"
+
+#: entradas/forms.py:30 entradas/forms.py:41
+msgid "¿Visible?"
+msgstr "Visible?"
+
+#: entradas/serializers.py:32
+msgid "Este blog no pertenece al usuario"
+msgstr "This blog does not belong to the user"
 
 #: entradas/templates/entradas/blogpost_list.html:6
 #: entradas/templates/entradas/bloguser_list.html:6
@@ -128,14 +190,46 @@ msgstr "Post of "
 msgid "¡No existen entradas!"
 msgstr "There are no entries!"
 
-#: entradas/templates/entradas/new_post.html:3
+#: entradas/templates/entradas/new_post.html:4
 msgid "Crear Entrada"
 msgstr "New Post"
 
-#: entradas/templates/entradas/new_post.html:8
+#: entradas/templates/entradas/new_post.html:9
 msgid "Crear entrada"
 msgstr "New post"
 
-#: entradas/templates/entradas/new_post.html:15
+#: entradas/templates/entradas/new_post.html:16
 msgid "Guardar entrada"
 msgstr "Save post"
+
+#: users/forms.py:7 users/forms.py:15
+msgid "Nombre de usuario"
+msgstr "Username"
+
+#: users/forms.py:8 users/forms.py:16
+msgid "Contraseña"
+msgstr "Password"
+
+#: users/forms.py:12
+msgid "Nombre"
+msgstr "Fistname"
+
+#: users/forms.py:13
+msgid "Apellidos"
+msgstr "Lastname"
+
+#: users/forms.py:14
+msgid "Correo electrónico"
+msgstr "Email"
+
+#: users/forms.py:17
+msgid "Repetir Contraseña"
+msgstr "Repeat password"
+
+#: users/forms.py:24
+msgid "El usuario existe, pruebe otro."
+msgstr "User exists, try another"
+
+#: users/forms.py:29
+msgid "Las contraseñas deben coincidir"
+msgstr "Password must match"

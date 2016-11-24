@@ -6,6 +6,7 @@ from django.utils.datetime_safe import datetime
 from django.views import View
 from django.views.generic import ListView, DetailView
 from rest_framework.generics import get_object_or_404
+from django.utils.translation import ugettext as _
 
 from blogs.includes import Inc
 from blogs.models import blogs, User
@@ -203,9 +204,9 @@ class BlogUserDetailView(View):
         possible_post = post.objects.filter(id=postId)
 
         if len(possible_post) == 0:
-            return HttpResponseNotFound("El post que buscas no existe")
+            return HttpResponseNotFound(_("El post que buscas no existe"))
         elif len(possible_post) > 1:
-            return HttpResponse("Múltiples opciones", status=300)
+            return HttpResponse(_("Múltiples opciones"), status=300)
 
         post_select = possible_post[0]
         context = {'post': post_select, 'error': error_message, 'login_form': login_form, 'signup_form': signup_form}
