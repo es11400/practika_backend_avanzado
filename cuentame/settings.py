@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import datetime
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -54,6 +56,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.twitter',
+    'oauth2_provider',
 
 ]
 
@@ -165,13 +168,39 @@ LOGGING = {
 
 LOGIN_URL = '/'
 
+LOGIN_REDIRECT_URL = "/"    # UNA VEZ ATENTICADO REDIRECCIONAMOS DONDE QUEREMOS, EN NUESTRO CASO A LA PAGINA PRINCIPAL
+
+SOCIALACCOUNT_PROVIDERS = \
+    {'facebook':
+       {'METHOD': 'oauth2',
+        'SCOPE': ['email', 'public_profile', 'user_friends'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'FIELDS': [
+            'id',
+            'email',
+            'name',
+            'first_name',
+            'last_name',
+            'verified',
+            'locale',
+            'timezone',
+            'link',
+            'gender',
+            'updated_time'],
+        'EXCHANGE_TOKEN': True,
+        'LOCALE_FUNC': 'path.to.callable',
+        'VERIFIED_EMAIL': False,
+        'VERSION': 'v2.4'}}
+
+
+
 API_URL = 'http://127.0.0.1:8000/api/1.0'
 
 POSTxPAGINAS = 5
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 5,
+    'PAGE_SIZE': 25,
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
@@ -180,7 +209,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-        # 'oauth2_provider.ext.rest_framework.OAuth2Authentication',
+        'oauth2_provider.ext.rest_framework.OAuth2Authentication',
     ),
     # 'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',)
 }
@@ -195,4 +224,8 @@ SITE_ID = 1
 ACCOUNT_EMAIL_VERIFICATION = "none"
 
 # Para forzar el refresco de un JWT Tokens
-JWT_ALLOW_REFRESH = True
+JWT_AUTH = {
+    'JWT_ALLOW_REFRESH': True,
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(minutes=3),
+    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(minutes=5),
+}

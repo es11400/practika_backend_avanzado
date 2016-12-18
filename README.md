@@ -37,3 +37,35 @@ $ source env/bin/activate
 
 
 nota: El instalador y el readme.md, están basados en la sabidurida de @kas.
+
+
+## Contenido de la prática.
+
+### Internacionalización.
+
+Se añade la posibilidad de añadir idiomas, en este caso hemos añadido Inglés.
+
+### Integración con terceros
+
+
+
+### Login Social
+
+Se añade acceso y registro de usuarios mediante Facebook y Twitter.
+    
+
+### Autenticacion del API basada en tokens JWT
+
+Añadimos el uso de tokens JWT para todos los endpoints que requieren seguridad, el tiempo standard es de 5 minutos, siendo este configurable en el settings.
+
+```
+JWT_AUTH = {
+    'JWT_ALLOW_REFRESH': True,
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(minutes=3),
+    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(minutes=5),
+}
+```
+
+
+
+

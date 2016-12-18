@@ -7,6 +7,10 @@ from rest_auth.registration.views import SocialLoginView
 from rest_auth.social_serializers import TwitterLoginSerializer
 from rest_auth.views import LoginView
 
+from django.forms.models import modelform_factory
+from braces.views import LoginRequiredMixin
+from django.views.generic import CreateView
+from oauth2_provider.models import get_application_model
 
 class LogoutView(View):
 

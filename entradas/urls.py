@@ -12,6 +12,6 @@ urlpatterns = [
     # Entradas URLS
     url(r'^newpost', NewPostView.as_view(), name='new_post'),
 
-# API URLS
+    # API URLS
     url(r'', include(router.urls))
 ]

@@ -1,0 +1,26 @@
+{% extends "oauth2_provider/base.html" %}
+
+{% load i18n %}
+{% block content %}
+    <div class="block-center">
+        <h3 class="block-center-heading">{% trans "Your applications for Cuentame" %}</h3>
+        {% if applications %}
+            <row>
+                {% for application in applications %}
+                    <div class="col-md-3 col-md-offset-3 well well-sm">
+                        <h4>{{ application.name }}</h4>
+                        <p>{{ application.client_type }} ( {{ application.authorization_grant_type }} )</p>
+                        <a class="btn btn-info" href="{{ application.get_absolute_url }}">{% trans "Mostrar" %}</a>
+                    </div>
+                {% endfor %}
+            </row>
+            <br>
+            <row>
+                <a class="btn btn-success" href="{% url "oauth2_provider:register" %}">{% trans "New Application" %}</a>
+            </row>
+
+        {% else %}
+            <p>{% trans "No applications defined" %}. <a href="{% url 'oauth2_provider:register' %}">{% trans "Click here" %}</a> {% trans "if you want to register a new one" %}</p>
+        {% endif %}
+    </div>
+{% endblock content %}
