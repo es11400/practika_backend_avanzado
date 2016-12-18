@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-24 20:03+0100\n"
+"POT-Creation-Date: 2016-12-18 18:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,8 +68,8 @@ msgid "Acceso/Registro"
 msgstr "Acceso/Registro"
 
 #: cuentame/templates/includes/footer.html:14
-#: cuentame/templates/includes/nav.html:36
-#: cuentame/templates/includes/nav.html:79
+#: cuentame/templates/includes/nav.html:35
+#: cuentame/templates/includes/nav.html:78
 msgid "Contacto"
 msgstr "Contacto"
 
@@ -93,37 +93,37 @@ msgstr "Categoría 4"
 msgid "Hecho a mano por "
 msgstr "Hecho a mano por "
 
-#: cuentame/templates/includes/modals.html:5
-#: cuentame/templates/includes/modals.html:9
+#: cuentame/templates/includes/modals.html:6
+#: cuentame/templates/includes/modals.html:12
 #: cuentame/templates/includes/nav.html:23
-#: cuentame/templates/includes/nav.html:76
+#: cuentame/templates/includes/nav.html:75
 msgid "Acceso"
 msgstr "Acceso"
 
-#: cuentame/templates/includes/modals.html:17
+#: cuentame/templates/includes/modals.html:20
 #: cuentame/templates/includes/nav.html:24
-#: cuentame/templates/includes/nav.html:77
+#: cuentame/templates/includes/nav.html:76
 msgid "Registro"
 msgstr "Registro"
 
-#: cuentame/templates/includes/modals.html:21
+#: cuentame/templates/includes/modals.html:24
 #, fuzzy
 #| msgid "Registro"
 msgid "Registrarse"
 msgstr "Registro"
 
 #: cuentame/templates/includes/nav.html:18
-#: cuentame/templates/includes/nav.html:71
+#: cuentame/templates/includes/nav.html:70
 msgid "Inicio"
 msgstr "Inicio"
 
 #: cuentame/templates/includes/nav.html:20
-#: cuentame/templates/includes/nav.html:73
+#: cuentame/templates/includes/nav.html:72
 msgid "Nuevo Post"
 msgstr "Nuevo Post"
 
 #: cuentame/templates/includes/nav.html:21
-#: cuentame/templates/includes/nav.html:74
+#: cuentame/templates/includes/nav.html:73
 msgid "Salir"
 msgstr "Salir"
 
@@ -132,20 +132,20 @@ msgid "Blogs"
 msgstr "Blogs"
 
 #: cuentame/templates/includes/nav.html:28
-#: cuentame/templates/includes/nav.html:81 entradas/forms.py:31
+#: cuentame/templates/includes/nav.html:80 entradas/forms.py:31
 #: entradas/forms.py:42
 msgid "Categorías"
 msgstr "Categorías"
 
-#: cuentame/templates/includes/nav.html:37
+#: cuentame/templates/includes/nav.html:36
 msgid "Idioma"
 msgstr "Idioma"
 
-#: cuentame/templates/includes/nav.html:39
+#: cuentame/templates/includes/nav.html:38
 msgid "Español"
 msgstr "Español"
 
-#: cuentame/templates/includes/nav.html:40
+#: cuentame/templates/includes/nav.html:39
 msgid "Inglés"
 msgstr "Inglés"
 
@@ -204,7 +204,7 @@ msgstr "Guardar entrada"
 
 #: users/forms.py:7 users/forms.py:15
 msgid "Nombre de usuario"
-msgstr ""
+msgstr "Nombre de usuario"
 
 #: users/forms.py:8 users/forms.py:16
 msgid "Contraseña"
@@ -233,3 +233,39 @@ msgstr "El usuario existe, pruebe otro."
 #: users/forms.py:29
 msgid "Las contraseñas deben coincidir"
 msgstr "Las contraseñas deben coincidir"
+
+#: users/templates/oauth2_provider/application_form.html:9
+msgid "Edit application"
+msgstr "Editar aplicación"
+
+#: users/templates/oauth2_provider/application_form.html:39
+msgid "Go Back"
+msgstr "Volver"
+
+#: users/templates/oauth2_provider/application_list.html:6
+msgid "Your applications for Cuentame"
+msgstr "Tus aplicaciones en Cuentame"
+
+#: users/templates/oauth2_provider/application_list.html:13
+msgid "Mostrar"
+msgstr "Mostrar"
+
+#: users/templates/oauth2_provider/application_list.html:19
+msgid "New Application"
+msgstr "Añadir Aplicación"
+
+#: users/templates/oauth2_provider/application_list.html:23
+msgid "No applications defined"
+msgstr "No existen aplicaciones"
+
+#: users/templates/oauth2_provider/application_list.html:23
+msgid "Click here"
+msgstr "Pulse aquí"
+
+#: users/templates/oauth2_provider/application_list.html:23
+msgid "if you want to register a new one"
+msgstr "si quiere registrar una nueva aplicación"
+
+#: users/templates/oauth2_provider/application_registration_form.html:5
+msgid "Register a new application for <strong>Cuentame</strong>"
+msgstr "Registra una nueva aplicación en <strong>Cuentame</strong>"
