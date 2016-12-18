@@ -47,6 +47,39 @@ Se añade la posibilidad de añadir idiomas, en este caso hemos añadido Inglés
 
 ### Integración con terceros
 
+Ofrecemos integración con terceros.
+
+Puede probar el correcto funcionamiento de esta con la aplicación de Heroku ofrecida por Django-Oauth-Toolkit.
+
+http://django-oauth-toolkit.herokuapp.com/consumer/exchange/
+
+Para ver ver o crear las aplicaciones del usuario, debe estar autenticado en la plataforma.
+
+```
+http://127.0.0.1:8000/oauth/applications
+```
+
+
+Obtención de tokens, para ello deberá para los siguiente información
+
+    grant_type    : authorization_code
+   
+    code          : 
+   
+    client_id     :
+   
+    client_secret :
+   
+    redirect_uri  :
+
+```
+http://127.0.0.1:8000/oauth/token
+```
+Para revocar o refrescar el token
+
+```
+http://127.0.0.1:8000/oauth/revoke_token
+```
 
 
 ### Login Social
