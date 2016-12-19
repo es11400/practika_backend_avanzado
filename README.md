@@ -97,7 +97,7 @@ http://127.0.0.1:8000/oauth/revoke_token
 ```
 
 
-### Login Social
+### Login Social (Extra)
 
 Se añade acceso y registro de usuarios mediante Facebook y Twitter.
     
