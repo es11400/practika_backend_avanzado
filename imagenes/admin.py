@@ -6,5 +6,5 @@ from imagenes.models import Imagenes
 
 class ImagenesAdmin(admin.ModelAdmin):
 
-    list_display = ('nombre', 'url')
+    list_display = ('nombre', 'url', 'resized',)
 admin.site.register(Imagenes, ImagenesAdmin)

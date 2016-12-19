@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.twitter',
     'oauth2_provider',
     'easy_thumbnails',
+    'kombu.transport.django',
 
 ]
 2
@@ -247,4 +248,5 @@ THUMBNAIL_ALIASES = {
     }
 }
 USE_CELERY = True
-BROKER_URL = 'amqp://'
+# BROKER_URL = 'amqp://guest:guest@localhost:5672//'
+BROKER_URL = 'django://'

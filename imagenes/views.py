@@ -12,8 +12,8 @@ class ImagenesModelViewSet(ModelViewSet):
 
     def perform_create(self, serializer):
         imagen = serializer.save()
-        generate_responsive_images(imagen)
+        generate_responsive_images.delay(imagen)
 
     def perform_update(self, serializer):
         imagen = serializer.save()
-        generate_responsive_images(imagen)
+        generate_responsive_images.delay(imagen)
