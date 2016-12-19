@@ -35,6 +35,21 @@ $ source env/bin/activate
 (env)$ python manage.py runserver
 ```
 
+### Celery (servicio de procesamiento en background)
+
+Para arrancar Celery, hay que *activar el entorno virtual* y luego *arrancar el Celery*.
+
+Desde la carpeta del proyecto y en el terminal, ejecuta:
+
+```
+$ source env/bin/activate
+(env)$ celery -A cuentame worker -l info
+```
+
+
+
+
+
 
 nota: El instalador y el readme.md, están basados en la sabidurida de @kas.
 
