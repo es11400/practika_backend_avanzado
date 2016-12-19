@@ -100,5 +100,27 @@ JWT_AUTH = {
 ```
 
 
+### API SUBIDA DE ARCHIVOS Y GENERACION DE THUMBNAILS E IMAGENES RESPONSIVE
 
+Para esta opción se ha optado por utilizar un sistema de tareas en background con Kombu o RabbitMQ y Celery.
+
+Para el uso de  Rabbitmq es necesario tenerlo instaldo, por defecto el settings viene configuración para trabajar con Kombu
+
+BROKER_URL = 'django://'
+
+Para instalar Rabbitmq
+
+http://www.rabbitmq.com/download.html
+
+Y cambiar en el settings el parámetro BROKER_URL
+
+BROKER_URL = 'amqp://guest:guest@localhost:5672//'
+
+El formato minimo es de 3600px y se generan 3 tamaños por cada imagen añadida.
+
+    small  ->  500
+    medium ->  750
+    large  -> 1000
+
+### NOTIFICACIONES DE RESPUESTA Y MENCIONES
 
