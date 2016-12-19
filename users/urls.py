@@ -6,7 +6,7 @@ from users.api import UserModelViewSet
 from users.views import LogoutView, FacebookLogin, TwitterLogin
 
 router = DefaultRouter()
-router.register('/1.0/users', UserModelViewSet, base_name='api_users_')
+router.register('1.0/users', UserModelViewSet, base_name='api_users_')
 
 urlpatterns = [
     # Web URLS
@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^api-token-refresh/', refresh_jwt_token),
     url(r'^api-token-verify/', verify_jwt_token),
     url(r'^oauth/', include('oauth2_provider.urls', namespace='oauth2_provider')),
-    url(r'^oauth/ ^applications/register/$', include('oauth2_provider.urls', namespace='oauth2_provider')),
+    url(r'^oauth/ ^applications/register/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     url(r'^accounts/', include('allauth.urls')),
 
 ]

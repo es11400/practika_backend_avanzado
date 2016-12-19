@@ -57,9 +57,10 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.twitter',
     'oauth2_provider',
+    'easy_thumbnails',
 
 ]
-
+2
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -145,8 +146,9 @@ LOCALE_PATHS = (
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL = 'uploads/'
-MEDIA_ROOT = 'http://127.0.0.1:8000/uploads/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_URL = '/uploads/'
 
 LOGGING = {
     'version': 1,
@@ -168,7 +170,7 @@ LOGGING = {
 
 LOGIN_URL = '/'
 
-LOGIN_REDIRECT_URL = "/"    # UNA VEZ ATENTICADO REDIRECCIONAMOS DONDE QUEREMOS, EN NUESTRO CASO A LA PAGINA PRINCIPAL
+LOGIN_REDIRECT_URL = "/"    # UNA VEZ AUTENTICADO REDIRECCIONAMOS DONDE QUEREMOS, EN NUESTRO CASO A LA PAGINA PRINCIPAL
 
 SOCIALACCOUNT_PROVIDERS = \
     {'facebook':
@@ -229,3 +231,20 @@ JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(minutes=3),
     'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(minutes=5),
 }
+
+# Tamaños de imagenes para responsive y Thumbnails
+
+DEFAULT_IMAGE_SIZE = (3600, 3600)
+
+THUMBNAIL_NAMER = 'easy_thumbnails.namers.alias'
+
+THUMBNAIL_HIGH_RESOLUTION = True
+THUMBNAIL_ALIASES = {
+    '': {
+        'small': {'size': (500, 500), 'crop': True},
+        'medium': {'size': (750, 750), 'crop': True},
+        'large': {'size': (1000, 1000), 'crop': True},
+    }
+}
+USE_CELERY = True
+BROKER_URL = 'amqp://'

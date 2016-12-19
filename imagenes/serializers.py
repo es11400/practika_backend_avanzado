@@ -7,3 +7,4 @@ class ImagenesSerializer(ModelSerializer):
 
     class Meta:
         model = Imagenes
+        fields = '__all__'
