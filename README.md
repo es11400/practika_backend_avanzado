@@ -139,3 +139,4 @@ El formato minimo es de 3600px y se generan 3 tamaños por cada imagen añadida.
 
 ### NOTIFICACIONES DE RESPUESTA Y MENCIONES
 
+Pendiente de realizar
